@@ -1,0 +1,52 @@
+# Program untuk menghitung kemunculan kata tertentu dalam teks
+# Dibuat oleh [Nama Anda]
+
+def main():
+    """
+    Fungsi utama program yang akan meminta input teks dan kata dari pengguna,
+    kemudian menghitung dan menampilkan jumlah kemunculan kata tersebut.
+    """
+    
+    # Menampilkan judul program
+    print("\n=== PROGRAM PENGHITUNG KEMUNCULAN KATA ===")
+    print("Program ini akan menghitung berapa kali sebuah kata muncul dalam teks yang Anda masukkan.\n")
+    
+    # Meminta input teks dari pengguna
+    teks = input("Masukkan paragraf teks: ")
+    
+    # Meminta input kata yang ingin dicari
+    kata_cari = input("Masukkan kata yang ingin dicari: ").lower()
+    
+    # Membersihkan teks dan memisahkan menjadi kata-kata
+    # 1. Mengubah ke lowercase untuk pencarian yang case-insensitive
+    # 2. Menghapus tanda baca
+    # 3. Memisahkan kata-kata berdasarkan spasi
+    tanda_baca = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
+    teks_bersih = teks.lower()
+    
+    for char in tanda_baca:
+        teks_bersih = teks_bersih.replace(char, "")
+    
+    daftar_kata = teks_bersih.split()
+    
+    # Menghitung kemunculan kata
+    jumlah = 0
+    for kata in daftar_kata:
+        if kata == kata_cari:
+            jumlah += 1
+    
+    # Menampilkan hasil
+    print(f"\nHasil pencarian:")
+    print(f"Kata '{kata_cari}' muncul sebanyak {jumlah} kali dalam teks.")
+    
+    # Menampilkan teks dengan kata yang dicari di-highlight
+    print("\nTeks dengan kata yang dicari:")
+    for kata in teks.split():
+        if kata.lower().strip(tanda_baca) == kata_cari:
+            print(f"**{kata}**", end=" ")
+        else:
+            print(kata, end=" ")
+    print()
+
+if __name__ == "__main__":
+    main()
