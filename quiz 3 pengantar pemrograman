@@ -1,5 +1,5 @@
 # Program untuk menghitung kemunculan kata tertentu dalam teks
-# Dibuat oleh [Nama Anda]
+# Dibuat oleh Muhammad Emil Mushthopa
 
 def main():
     """
